@@ -241,7 +241,7 @@ msg -bar
 echo -e "\033[1;33mDescargando archivos... ESPERE "
 msg -bar
 mkdir -p /root/update &>/dev/null
-wget -q --no-check-certificate -O $HOME/files.tar https://raw.githubusercontent.com/NetVPS/Generador-BOT/main/Code-BOT-Comandos/files.tar
+wget -q --no-check-certificate -O $HOME/files.tar https://raw.githubusercontent.com/DanssBot/Generador-BOT/main/Code-BOT-Comandos/files.tar
 [[ -d $HOME/update ]] && rm -rf $HOME/update/* || mkdir $HOME/update
 [[ -e $HOME/files.tar ]] && tar xpf $HOME/files.tar -C $HOME/update && rm -f $HOME/files.tar
 echo 999 > ${CIDdir}/limit
@@ -541,7 +541,7 @@ echo -e " \033[7;49;35m ${TTini} 🐲 BotGEN ChumoGH${TTcent}ADM $(cat ${CIDdir}
 msg -bar
 echo -e "  - LIMITADOR \033[1;32m ( $limted ) \033[1;37m KILL ID VENCIDOS ${PID_kill} "
 msg -bar 
-echo -e "\033[0;35m[\033[0;36m1\033[0;35m] \033[0;35m> \033[1;37m TOKEN DEL BOT $tk "
+echo -e "\033[0;35m[\033[0;36m1\033[0;35m] \033[0;35m> \033[1;37m TOKEN DEL BOTS $tk "
 echo -e "\033[0;35m[\033[0;36m2\033[0;35m] \033[0;35m> \033[1;37m INICIAR/PARAR BOT $PID_GEN\033[0m"
 echo -e "\033[0;35m[\033[0;36m3\033[0;35m] \033[0;35m> \033[1;37m ID DE USUARIO TELEGRAM  $adid"
 echo -e "\033[0;35m[\033[0;36m4\033[0;35m] \033[0;35m> \033[1;37m Cambiar Contacto -> $(cat < ${CIDdir}/resell)"
