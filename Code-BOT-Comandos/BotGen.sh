@@ -120,19 +120,19 @@ upfile_fun () {
 	[[ ! -z ${callback_query_message_chat_id[$id]} ]] && var=${callback_query_message_chat_id[$id]} || var=${message_chat_id[$id]}
           ShellBot.sendDocument --chat_id $var  \
                              --document @${1} \
-                             #--caption  "$(echo -e "$bot_retorno")" \
-                             #--parse_mode html \
-                             #--reply_markup "$(ShellBot.ForceReply)"
-							 #--reply_markup "$(ShellBot.InlineKeyboardMarkup -b "$2")"							 
+                             --caption  "$(echo -e "$bot_retorno")" \
+                             --parse_mode html \
+                             --reply_markup "$(ShellBot.ForceReply)"
+							 --reply_markup "$(ShellBot.InlineKeyboardMarkup -b "$2")"							 
 }
 
 upimg_fun () {
           ShellBot.sendDocument --chat_id $(cat ${CIDdir}/Admin-ID)  \
                              --document @${1} \
-                             #--caption  "$(echo -e "$bot_retorno")" \
-                             #--parse_mode html \
-                             #--reply_markup "$(ShellBot.ForceReply)"
-							 #--reply_markup "$(ShellBot.InlineKeyboardMarkup -b "$2")"							 
+                             --caption  "$(echo -e "$bot_retorno")" \
+                             --parse_mode html \
+                             --reply_markup "$(ShellBot.ForceReply)"
+							 --reply_markup "$(ShellBot.InlineKeyboardMarkup -b "$2")"							 
 }
 
 invalido_fun () {
@@ -196,15 +196,15 @@ msj_del () {
 }
 
 msj_img () {
-#${timg}/id_${usrLOP}.png
+${timg}/id_${usrLOP}.png
 local file_id
           ShellBot.getFile --file_id "$1"
-          #ShellBot.downloadFile --file_path "${return[file_path]}" --dir "${timg}/id_${usrLOP}.png"
-		  #[[ -e ${return[file_path]} ]] && mv ${return[file_path]} "${timg}/id_${usrLOP}.png1"
+          ShellBot.downloadFile --file_path "${return[file_path]}" --dir "${timg}/id_${usrLOP}.png"
+		  [[ -e ${return[file_path]} ]] && mv ${return[file_path]} "${timg}/id_${usrLOP}.png1"
 
-	#[[ ! -z ${callback_query_message_chat_id[$id]} ]] && var=${callback_query_message_chat_id[$id]} || var=${message_chat_id[$id]}
-		      #ShellBot.sendPhoto --chat_id $var --photo @${timg}/id_${usrLOP}.png
-			  #ShellBot.deleteMessage --chat_id $var --message_id $1
+	[[ ! -z ${callback_query_message_chat_id[$id]} ]] && var=${callback_query_message_chat_id[$id]} || var=${message_chat_id[$id]}
+		      ShellBot.sendPhoto --chat_id $var --photo @${timg}/id_${usrLOP}.png
+			  ShellBot.deleteMessage --chat_id $var --message_id $1
 			  upimg_fun
 local bot_retorno="ID user botgen\n"
 		bot_retorno+="$LINE\n"
