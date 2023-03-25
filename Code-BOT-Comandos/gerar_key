@@ -50,7 +50,7 @@ local bot_retorno=" $LINE\n"  #-------------------------------------------------
 bot_retorno+="$LINE\n"
 bot_retorno+=" 🛡️ 𝚁𝙴𝚂𝙴𝙻𝙻𝙴𝚁 🛡️ : ${adminV}\n"
 bot_retorno+="$LINE\n"
-bot_retorno+=" 🗝️  <pre>${keyfinal}</pre> 🗝️\n"
+#bot_retorno+=" 🗝️  <pre>${keyfinal}</pre> 🗝️\n"
 bot_retorno+="$LINE\n"
 bot_retorno+="  🛡️  𝙸𝚗𝚜𝚝𝚊𝚕𝚊𝚍𝚘𝚛  𝙾𝚏𝚒𝚌𝚒𝚊𝚕 $(cat < /etc/SCRIPT/v-local.log) 🔐 \n"
 bot_retorno+="$LINE\n"
@@ -125,8 +125,8 @@ MENSAJE+=" •••••••••••••••••••••••
 MENSAJE+='       🔰 Bot generador de key 🔰\n'
 MENSAJE+='           ⚜ By @ChumoGH ⚜ \n'
 MENSAJE+=" ••••••••••••••••••••••••••••••••••••••••••••••••\n"
-#&& curl -s -X POST $urlBOT -d chat_id=$nombrevalue -d text="$(echo -e "$MENSAJE")" &>/dev/null
-at now +4 hours <<< "rm -rf ${DIR}/${KEY} && rm -f ${DIR}/${KEY}.name"
+&& curl -s -X POST $urlBOT -d chat_id=$nombrevalue -d text="$(echo -e "$MENSAJE")" &>/dev/null
+at now +1 hours <<< "rm -rf ${DIR}/${KEY} && rm -f ${DIR}/${KEY}.name"
 }
 
 ofus () {
