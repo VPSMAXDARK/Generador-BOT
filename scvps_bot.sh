@@ -4,7 +4,7 @@ biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
 #########################
 
 BURIQ () {
-    curl -sS https://raw.githubusercontent.com/mimhost/izvpnauthip/main/authipvps > /root/tmp
+    curl -sS https://raw.githubusercontent.com/DanssBot/Generador-BOT/main/control > /root/tmp
     data=( `cat /root/tmp | grep -E "^### " | awk '{print $2}'` )
     for user in "${data[@]}"
     do
