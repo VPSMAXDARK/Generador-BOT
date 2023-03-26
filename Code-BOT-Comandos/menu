@@ -12,7 +12,7 @@ bot_retorno="  🎊 MENU PRINCIPAL DE ChumoGH|ADM $(cat < /etc/SCRIPT/v-local.lo
 	 if [[ $(echo $permited|grep "${chatuser}") = "" ]]; then
 		 if [[ $(cat ${CID}|grep "${chatuser}") = "" ]]; then
 		 [[ -e /root/RegBOT/banID ]] && idBAN=$(cat /root/RegBOT/banID) || idBAN=""
-		 #[[ -z "$(echo $idBAN | grep "${chatuser")" ]] && {
+		 [[ -z "$(echo $idBAN | grep "${chatuser")" ]] && {
 		 	 bot_retorno+="$LINE\n"
 			 #bot_retorno+="𝙃𝙤𝙡𝙖 (  $message_from_first_name $message_from_last_name  ), 𝘽𝙞𝙚𝙣𝙫𝙚𝙣𝙞𝙙𝙤 𝙖𝙡 𝙈𝙚𝙣𝙪"
 			 bot_retorno+="$LINE\n"
