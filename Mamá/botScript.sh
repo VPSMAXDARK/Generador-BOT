@@ -235,6 +235,15 @@ gerar_key () {
 	fi
 
 	meu_ip_fun
+        unset newresell
+newresell="${USRdatabase2}/Mensaje_$chatuser.txt"
+if [[ ! -e ${newresell} ]]; then
+echo "@Lacasitamx" > ${SCPT_DIR}/message.txt 
+else
+echo "$(cat ${newresell})" > ${SCPT_DIR}/message.txt
+fi
+
+[[ ! $newresell ]] && credill="By $(cat ${USRdatabase2}/Mensaje_$chatuser.txt)" || credill="By $(cat ${SCPT_DIR}/message.txt)"
 	valuekey="$(date | md5sum | head -c10)"
 	valuekey+="$(echo $(($RANDOM*10))|head -c 5)"
 
@@ -245,6 +254,8 @@ gerar_key () {
 	local bot_retorno="$LINE\n"
 		  bot_retorno+="✅ Key $name Generada! ✅\n"
 		  bot_retorno+="$LINE\n"
+                  bot_retorno+="👤 Slogan : $credill\n"
+                  bot_retorno+="\n"
 		  bot_retorno+="<code>${keyfinal}</code>\n"
 		  bot_retorno+="$LINE\n"
 		  bot_retorno+="<code>${link}</code>\n"
@@ -341,7 +352,9 @@ menu_src(){
 		 	EXPTIME="[$(($(($DataSec - $VPSsec)) / 86400))]"
 		 	key_genered=$(cat ${NID}|grep -w "${chatuser}"|awk -F ' ' '{print $2}')
 		 	key_used=$(cat ${NID}|grep -w "${chatuser}"|awk -F ' ' '{print $3}')
-
+                    unset creditos
+		creditos="$(cat /etc/CAT-BOT/Creditos/Mensaje_$chatuser.txt)"
+		  [[ ! $creditos ]] && credi="OFF" || credi="$creditos"
 		 	bot_retorno="$LINE\n"
 		 	bot_retorno+="     🔰 Bot generador de key 🔰\n"
 		 	bot_retorno+="             ⚜ by @Rufu99 ⚜\n"
@@ -351,6 +364,7 @@ menu_src(){
 		 	bot_retorno+="<u>keys generadas</u>: [${key_genered}]\n"
 		 	bot_retorno+="<u>keys usadas</u>: [${key_used}]\n"
 		 	bot_retorno+="$LINE\n"
+                        bot_retorno+="🪪RESELLER PERSONAL: $credi\n"
 			bot_retorno+="/menu (muestra este menu)\n"
 			bot_retorno+="/ayuda (ayuda de los comandos)\n"
 			bot_retorno+="$LINE"
