@@ -775,6 +775,59 @@ exp_id(){
 	reply
 }
 
+rmid(){
+	[[ ! -z ${callback_query_message_chat_id[$id]} ]] && var=${callback_query_message_chat_id[$id]} || var=${message_chat_id[$id]}
+		 ShellBot.sendMessage --chat_id $var \
+            --text "𝙄𝙉𝙂𝙍𝙀𝙎𝙀 𝙀𝙇 𝙄𝘿 𝘿𝙀𝙇 𝙐𝙎𝙐𝘼𝙍𝙄𝙊" \
+            --reply_markup "$(ShellBot.ForceReply)"
+                    
+}
+
+newid(){
+	[[ ! -z ${callback_query_message_chat_id[$id]} ]] && var=${callback_query_message_chat_id[$id]} || var=${message_chat_id[$id]}
+	     ShellBot.sendMessage --chat_id $var \
+            --text "𝙄𝙉𝙂𝙍𝙀𝙎𝙀 𝙀𝙇 𝙉𝙐𝙀𝙑𝙊 𝙄𝘿" \
+            --reply_markup "$(ShellBot.ForceReply)"
+                    
+}
+
+mensaje(){
+      [[ $(cat ${SCPT_DIR}|grep "${message_text[$id]}") = "" ]]
+echo "${message_text[$id]}" > ${USRdatabase2}/Mensaje_$chatuser.txt
+         local bot_retorno="$LINE\n"
+          bot_retorno+="🟢 ●⸺ 𝗥𝗘𝗦𝗘𝗟𝗟𝗘𝗥 𝗔𝗚𝗥𝗘𝗚𝗔𝗗𝗢 \n"
+          bot_retorno+="$LINE\n"
+          bot_retorno+="▫️ Nuevo Reseller: ${message_text[$id]}\nVolver: /menu\n"
+          bot_retorno+="$LINE"
+          [[ ! -z ${callback_query_message_chat_id[$id]} ]] && var=${callback_query_message_chat_id[$id]} || var=${message_chat_id[$id]}
+	     ShellBot.sendMessage --chat_id $var \
+							--text "<i>$(echo -e "$bot_retorno")</i>" \
+							--parse_mode html
+							#  --reply_markup ${message_reply_to_message_text[$id]
+	return 0
+          }
+newres(){
+	[[ ! -z ${callback_query_message_chat_id[$id]} ]] && var=${callback_query_message_chat_id[$id]} || var=${message_chat_id[$id]}
+		 ShellBot.sendMessage --chat_id $var \
+            --text "☟INGRESE SU RESELLER ABAJO☟" \
+            --reply_markup "$(ShellBot.ForceReply)"
+                    
+}
+
+rm_resell(){
+rm ${USRdatabase2}/Mensaje_$chatuser.txt
+[[ -z ${USRdatabase2}/Mensaje_$chatuser.txt ]] && rs="$(cat ${USRdatabase2}/Mensaje_$chatuser.txt)" || rs="Sin-Reseller"
+bot_retorno="$LINE\n"
+bot_retorno+="🔴 ●⸺  𝗥𝗘𝗦𝗘𝗟𝗟𝗘𝗥 𝗘𝗟𝗜𝗠𝗜𝗡𝗔𝗗𝗢\n"
+bot_retorno+="▫️ Verificador de reseller: ${rs}\n"
+bot_retorno+="$LINE\n"
+[[ ! -z ${callback_query_message_chat_id[$id]} ]] && var=${callback_query_message_chat_id[$id]} || var=${message_chat_id[$id]}
+	      ShellBot.sendMessage --chat_id $var \
+							--text "<i>$(echo -e "$bot_retorno")</i>" \
+							--parse_mode html
+	return 0
+}
+
 send_admin(){
 
 	local bot_retorno2="$LINE\n"
@@ -845,6 +898,14 @@ comand(){
 	    				#/[Ii]d|/[Ii]D)myid_src &;;
 	    				/*|*)invalido_fun &;;
 	    			esac
+
+else
+		if [[ ${message_reply_to_message_message_id[$id]} ]]; then
+				case ${message_reply_to_message_text[$id]} in
+					'☟INGRESE SU RESELLER ABAJO☟')mensaje;;
+					#*)invalido_fun;;
+				esac
+
 	    		 fi
 	    		 sleep 5
 	    		 [[ -e "/etc/donar_active.txt" ]] && donar
@@ -917,6 +978,7 @@ comand(){
 	    				/idden) idden && return 0;;
 	    				/quitar) quitar && return 0;;
 	    				/sendid) send_admin && return 0;;
+                                        '☟INGRESE SU RESELLER ABAJO☟')mensaje;;
 	    				/saveid)exp_id "${comando[1]}" && return 0;;
 	    			esac
 	    		fi
@@ -938,6 +1000,8 @@ comand(){
 					 /[Dd]el)listID_src;;
 					 /[Pp]ower)start_gen &;;
 			 		 /[Ll]ist)listID_src &;;
+					/[Rr]eseller)newres;;
+                                        /[Dd]elresell)rm_resell &;;
 					 /[Rr]eboot)reboot_src &;;
 			 		 /[Ii]nstal)link_src &;;
 			 		 /[Cc]ache)cache_src &;;
