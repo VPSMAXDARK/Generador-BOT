@@ -744,6 +744,7 @@ bot_gen(){
 		8) config;;
 		9) remover_key;;
 		10) ayuda_fun;;
+                11) install_ini;;
 		*) bot_gen;;
 	esac
 }
