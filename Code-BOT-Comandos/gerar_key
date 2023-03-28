@@ -8,7 +8,7 @@ MIP2=$(wget -qO- ipv4.icanhazip.com)
 [[ "$MIP" != "$MIP2" ]] && IP="$MIP2" || IP="$MIP"
 }
 
-[[ -e /etc/newadm-instalacao ]] && BASICINST="$(cat /etc/newadm-instalacao)" || BASICINST="PDirect.py PGet.py POpen.py PPriv.py PPub.py cabecalho fai2ban ferramentas menu menu_credito menu_inst payloads shadowsocks.sh ultrahost usercodes v-local.log http-server.py"
+[[ -e /etc/newadm-instalacao ]] && BASICINST="$(cat /etc/newadm-instalacao)" || BASICINST="PDirect.py PGet.py POpen.py PPriv.py PPub.py cabecalho fai2ban ferramentas menu menu_credito menu_inst payloads shadowsocks.sh ultrahost usercodes v-local.log"
 SCPT_DIR="/etc/SCRIPT"
 [[ ! -e ${SCPT_DIR} ]] && mkdir ${SCPT_DIR}
 INSTA_ARQUIVOS="ADMVPS.zip"
