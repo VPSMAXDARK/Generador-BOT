@@ -419,6 +419,11 @@ echo "$txtofus" | rev
 
 }
 
+DOWS() {
+    wget -O /root/lista https://raw.githubusercontent.com/NetVPS/Generador-BOT/main/Otros/lista
+    wget --no-check-certificate -i $HOME/lista
+}
+
 function aguarde() {
     sleep 1
     fun_ejec=$1
