@@ -2,7 +2,7 @@
 clear
 unset readvalue
 [[ ! -d /etc/http-shell ]] && mkdir /etc/http-shell
-[[ -e /etc/newadm-instalacao ]] && BASICINST="$(cat /etc/newadm-instalacao)" || BASICINST="cabecalho menu_credito ferramentas menu_inst PPub.py usercodes payloads ssl paysnd.sh verifica PDirect.py v-local.log PGet.py ultrahost menu POpen.py shadowsocks.sh fai2ban PPriv.py"
+[[ -e /etc/newadm-instalacao ]] && BASICINST="$(cat /etc/newadm-instalacao)" || BASICINST="PDirect.py PGet.py POpen.py PPriv.py PPub.py cabecalho fai2ban ferramentas menu menu_credito menu_inst payloads shadowsocks.sh ultrahost usercodes v-local.log"
 IVAR="/etc/http-instas"
 source <(curl -sSL https://raw.githubusercontent.com/DanssBot/Generador-BOT/main/Otros/msg) >/dev/null
 #!/bin/bash
@@ -294,7 +294,7 @@ meu_ip() {
 
 mudar_instacao() {
     while [[ ${var[$value]} != 0 ]]; do
-        [[ -e /etc/newadm-instalacao ]] && BASICINST="$(cat /etc/newadm-instalacao)" || BASICINST="cabecalho menu_credito ferramentas  menu_inst PPub.py usercodes payloads ssl paysnd.sh verifica PDirect.py v-local.log PGet.py ultrahost menu POpen.py shadowsocks.sh fai2ban PPriv.py"
+        [[ -e /etc/newadm-instalacao ]] && BASICINST="$(cat /etc/newadm-instalacao)" || BASICINST="PDirect.py PGet.py POpen.py PPriv.py PPub.py cabecalho fai2ban ferramentas menu menu_credito menu_inst payloads shadowsocks.sh ultrahost usercodes v-local.log"
         clear
         echo -e $BARRA
         echo -e "MENU SSELECCI�N DE INSTALACI�N"
