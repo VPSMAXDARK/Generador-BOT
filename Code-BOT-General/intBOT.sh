@@ -84,7 +84,7 @@ permited=$(curl -sSL "${link}/ChumoGH/VPSbot/main/TeleBotGen/Control/Control-Bot
   lv=$(($i+1))
   echo $lv > /etc/nivbot
   } || echo "1" > /etc/nivbot
-  v1=$(curl -sSL "https://www.dropbox.com/s/8tizr516cvkwss6/v-new.log")
+  v1=$(curl -sSL "https://raw.githubusercontent.com/DanssBot/Multi-Script/main/ChuGH-5.7u/adm-lite/v-local.log")
   echo "$v1" > /etc/ADM-db/vercion  
   }
 }
